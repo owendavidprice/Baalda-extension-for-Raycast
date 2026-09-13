@@ -1,0 +1,116 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "baalda",
+  "title": "Baalda",
+  "description": "Capture thoughts and search your Baalda second brain — quick note capture plus AI tools for your vaults",
+  "icon": "icon.png",
+  "author": "owendavidprice",
+  "categories": ["Productivity"],
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "quick-capture",
+      "title": "Quick Capture",
+      "description": "Capture a thought into your Baalda vault in seconds",
+      "mode": "view"
+    },
+    {
+      "name": "search-notes",
+      "title": "Search Notes",
+      "description": "Search notes across your Baalda vaults",
+      "mode": "view"
+    },
+    {
+      "name": "browse-vault",
+      "title": "Browse Vault",
+      "description": "Browse vaults, folders and recent notes",
+      "mode": "view"
+    }
+  ],
+  "tools": [
+    {
+      "name": "baalda-search-notes",
+      "title": "Search Baalda Notes",
+      "description": "Semantic + keyword search across notes in your Baalda vaults"
+    },
+    {
+      "name": "baalda-read-note",
+      "title": "Read Baalda Note",
+      "description": "Read the full markdown content of a Baalda note"
+    },
+    {
+      "name": "baalda-create-note",
+      "title": "Create Baalda Note",
+      "description": "Create a new markdown note in a Baalda vault"
+    },
+    {
+      "name": "baalda-append-to-note",
+      "title": "Append to Baalda Note",
+      "description": "Append markdown text to the end of an existing Baalda note"
+    },
+    {
+      "name": "baalda-list-vaults",
+      "title": "List Baalda Vaults",
+      "description": "List the Baalda vaults you can access"
+    },
+    {
+      "name": "baalda-list-notes",
+      "title": "List Baalda Notes",
+      "description": "List notes in a Baalda vault, optionally within one folder"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "serverUrl",
+      "title": "Baalda Server URL",
+      "description": "URL of your Baalda server. Use https://api.baalda.com for the managed service, http://localhost:3010 for a local server, or your self-hosted URL.",
+      "type": "textfield",
+      "required": true,
+      "default": "https://api.baalda.com",
+      "placeholder": "https://api.baalda.com"
+    },
+    {
+      "name": "mcpToken",
+      "title": "MCP Token",
+      "description": "Token from Baalda desktop app → Vault Settings → MCP → Create token. Starts with mcp_. The AI is bound by the same permissions as your account.",
+      "type": "password",
+      "required": true,
+      "placeholder": "mcp_…"
+    },
+    {
+      "name": "defaultVaultId",
+      "title": "Default Vault ID (optional)",
+      "description": "Skip vault selection. Copy a vaultId from the Browse Vault command. If empty, the first accessible vault is used.",
+      "type": "textfield",
+      "required": false,
+      "placeholder": "Leave empty to auto-pick first vault"
+    },
+    {
+      "name": "captureFolder",
+      "title": "Capture Folder (optional)",
+      "description": "Vault-relative folder for Quick Capture notes, e.g. Inbox. Leave empty for the vault root. The folder must already exist.",
+      "type": "textfield",
+      "required": false,
+      "placeholder": "Inbox"
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^1.104.19",
+    "@raycast/utils": "^2.2.6"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^2.1.1",
+    "@types/node": "^25.9.2",
+    "@types/react": "^19.2.17",
+    "eslint": "^10.4.1",
+    "prettier": "^3.8.4",
+    "typescript": "^5.8.3"
+  },
+  "scripts": {
+    "build": "ray build",
+    "dev": "ray develop",
+    "lint": "ray lint",
+    "fix-lint": "ray lint --fix",
+    "publish": "npx @raycast/api@latest publish"
+  }
+}
